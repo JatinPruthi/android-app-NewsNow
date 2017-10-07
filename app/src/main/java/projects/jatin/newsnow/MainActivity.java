@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 newsService.getSources().enqueue(new Callback<Website>() {
                     @Override
                     public void onResponse(Call<Website> call, Response<Website> response) {
+                        dialog.dismiss();
                         adapter=new ListSourceAdapter(getBaseContext(),response.body());
                         adapter.notifyDataSetChanged();
                         listWebsite.setAdapter(adapter);
@@ -100,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
             newsService.getSources().enqueue(new Callback<Website>() {
                 @Override
                 public void onResponse(Call<Website> call, Response<Website> response) {
+                    dialog.dismiss();
                     adapter=new ListSourceAdapter(getBaseContext(),response.body());
                     adapter.notifyDataSetChanged();
                     listWebsite.setAdapter(adapter);
